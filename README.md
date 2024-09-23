@@ -1,0 +1,1 @@
+# plugins-manual-image-crop
