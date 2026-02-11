@@ -6,7 +6,7 @@ Description: Plugin allows you to manually crop all the image sizes registered i
 Version: 1.13
 Author: Tomasz Sita
 Author URI: https://github.com/tomaszsita
-License: Proprietary - All rights reserved by Tomasz Sita
+License: GPL2
 Text Domain: microp
 Domain Path: /languages/
 */
