@@ -38,8 +38,12 @@ class ManualImageCrop {
 
 		wp_enqueue_script( 'jquery-color', plugins_url('assets/js/jquery.color.js', dirname( __FILE__ )), array( 'jquery') );
 		wp_enqueue_script( 'jquery-jcrop', plugins_url('assets/js/jquery.Jcrop.min.js', dirname( __FILE__ )), array( 'jquery') );
-		wp_enqueue_script( 'miccrop', plugins_url('assets/js/microp.js', dirname( __FILE__ )), array( 'jquery', 'media-views') );
-		wp_enqueue_script( 'mic-media-modal', plugins_url('assets/js/mic-media-modal.js', dirname( __FILE__ )), array( 'jquery', 'media-views', 'miccrop') );
+		wp_enqueue_script( 'miccrop', plugins_url('assets/js/microp.js', dirname( __FILE__ )), array( 'jquery', 'media-views'), mic_VERSION );
+		wp_enqueue_script( 'mic-media-modal', plugins_url('assets/js/mic-media-modal.js', dirname( __FILE__ )), array( 'jquery', 'media-views', 'miccrop'), mic_VERSION );
+
+		wp_localize_script( 'miccrop', 'MicCrop', array(
+			'nonce' => wp_create_nonce( 'mic_crop' ),
+		) );
 	}
 
 	/**

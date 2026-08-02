@@ -1,11 +1,12 @@
 === Manual Image Crop ===
 Contributors: tomasz.sita
 Tags: crop, cropping, thumbnail, featured image, gallery
-Tested up to: 6.5
+Tested up to: 7.1
 Requires at least: 3.5
+Requires PHP: 7.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
-Stable tag: 1.13
+Stable tag: 1.14
 
 Plugin allows you to manually crop all the image sizes registered in your WordPress theme (in particular featured image).
 
@@ -57,6 +58,11 @@ Please contact me if you want to add a translation (or submit a pull request on 
 *   When the plugin has been installed, Click 'Activate' 
 
 == Changelog ==
+= 1.14 =
+* Security: fixed missing authorization and CSRF on crop AJAX (Subscriber+ could overwrite arbitrary attachment intermediates / metadata). Discovered by Shivamani Vastrala (reported via WPScan).
+* Added nonce verification (check_ajax_referer) and capability checks (edit_post) for mic_crop_image and mic_editor_window.
+* Compatibility: smoke-tested on WordPress 7.1 (beta) with PHP 8.2; updated "Tested up to" to 7.1.
+
 = 1.13 =
 * Migrated from thickbox to WordPress Media Modal for better user experience
 * Improved responsive design and mobile compatibility

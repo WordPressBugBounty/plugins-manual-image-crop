@@ -57,9 +57,9 @@ class ManualImageCropYoastFix {
         
         // Re-enqueue with higher priority and Yoast compatibility
         wp_enqueue_script('miccrop', plugins_url('assets/js/microp.js', dirname(__FILE__)), 
-            array('jquery', 'media-views', 'yoast-seo-admin'), '1.13', true);
+            array('jquery', 'media-views', 'yoast-seo-admin'), mic_VERSION, true);
         wp_enqueue_script('mic-media-modal', plugins_url('assets/js/mic-media-modal.js', dirname(__FILE__)), 
-            array('jquery', 'media-views', 'miccrop', 'yoast-seo-admin'), '1.13', true);
+            array('jquery', 'media-views', 'miccrop', 'yoast-seo-admin'), mic_VERSION, true);
     }
 
     /**

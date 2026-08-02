@@ -121,6 +121,7 @@ jQuery(document).ready(function($) {
             url: ajaxurl + '?action=mic_editor_window&postId=' + attachmentId,
             type: 'GET',
             data: {
+                nonce: MicCrop.nonce,
                 mainPreviewMaxWidth: mic_preview_config.mainPreviewMaxWidth,
                 mainPreviewMaxHeight: mic_preview_config.mainPreviewMaxHeight,
                 smallPreviewMaxWidth: mic_preview_config.smallPreviewMaxWidth,
@@ -145,6 +146,7 @@ jQuery(document).ready(function($) {
             url: ajaxurl + '?action=mic_editor_window&postId=' + attachmentId + '&size=' + size,
             type: 'GET',
             data: {
+                nonce: MicCrop.nonce,
                 mainPreviewMaxWidth: mic_preview_config.mainPreviewMaxWidth,
                 mainPreviewMaxHeight: mic_preview_config.mainPreviewMaxHeight,
                 smallPreviewMaxWidth: mic_preview_config.smallPreviewMaxWidth,
@@ -211,7 +213,8 @@ jQuery(document).ready(function($) {
                 editedSize: mic_edited_size,  
                 previewScale: mic_preview_scale, 
                 make2x: $('#mic-make-2x').prop('checked'), 
-                mic_quality: $('#micQuality').val() 
+                mic_quality: $('#micQuality').val(),
+                nonce: MicCrop.nonce
             }, function(response) {
                 if (response.status == 'ok') {
                     var newImage = new Image();

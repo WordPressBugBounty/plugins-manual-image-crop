@@ -5,7 +5,9 @@ jQuery(document).ready(function($) {
 	$(document).on('click', '.rm-crop-size-tab', function(e) {
 		e.preventDefault();
 		$(this).addClass('nav-tab-active');
-		$.get($(this).attr('href'), function(data) {
+		var tabUrl = $(this).attr('href');
+		var sep = tabUrl.indexOf('?') === -1 ? '?' : '&';
+		$.get(tabUrl + sep + 'nonce=' + encodeURIComponent(MicCrop.nonce), function(data) {
 			$('.mic-modal-body').html(data);
 		});
 	});
@@ -13,7 +15,7 @@ jQuery(document).ready(function($) {
 	$( document ).on('click', '#micCropImage', function() {
 		$('#micCropImage').hide();
 		$('#micLoading').show();
-		$.post(ajaxurl + '?action=mic_crop_image', { select: jcrop_api.tellSelect(), scaled: jcrop_api.tellScaled(), attachmentId: mic_attachment_id, editedSize: mic_edited_size,  previewScale: mic_preview_scale, make2x: $('#mic-make-2x').prop('checked'), mic_quality: $('#micQuality').val() } ,  function(response) {
+		$.post(ajaxurl + '?action=mic_crop_image', { select: jcrop_api.tellSelect(), scaled: jcrop_api.tellScaled(), attachmentId: mic_attachment_id, editedSize: mic_edited_size,  previewScale: mic_preview_scale, make2x: $('#mic-make-2x').prop('checked'), mic_quality: $('#micQuality').val(), nonce: MicCrop.nonce } ,  function(response) {
 			if (response.status == 'ok') {
 				var newImage = new Image();
 				newImage.src = response.file + '?' + Math.random();
